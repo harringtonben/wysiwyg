@@ -40,19 +40,30 @@ var cardnumber = document.getElementsByClassName('product');
 
 function replaceDOM(event) {
 
-console.log(event);
-var textToReplace = event.target.nextSibling.firstElementChild;
-textInput.addEventListener('keypress', function(typing) {
+// console.log(event);
+// var textToReplace = event.target.nextSibling.firstElementChild;
+// console.log(textToReplace)
+
+if (event.target.classList == 'title') {
+		textInput.addEventListener('keypress', function(typing) {
 		// console.log(typing.key);
-		textToReplace.innerHTML += '';
-		textToReplace.innerHTML = document.getElementById('typeinme').value;
-	});
+		event.target.nextSibling.firstElementChild.innerHTML += '';
+		event.target.nextSibling.firstElementChild.innerHTML = document.getElementById('typeinme').value;
+	});} else if (event.target.parentNode.classList == 'description') {
+		textInput.addEventListener('keypress', function(typing) {
+		// console.log(event.target.classList);
+		event.target.parentNode.firstChild.innerHTML += '';
+		event.target.parentNode.firstChild.innerHTML = document.getElementById('typeinme').value;
+	});} else if (event.target.parentNode.classList == 'description') {
+		console.log(event);
+	}
+
 }
 
 
 function findFocus(event) {
 	// console.log(event)
-	typeinme.focus()
+	document.getElementById('typeinme').focus()
 	replaceDOM(event);
 	// console.log(textToReplace)	
 }
@@ -78,8 +89,6 @@ for (var i = 0; i < famousPeople.length; i++) {
 }
 
 
-
-
 document.body.addEventListener('click', function(event) {
 	 if (event.target.classList == 'title') {
 		// console.log(event.target.parentNode.classList);
@@ -101,11 +110,15 @@ document.body.addEventListener('click', function(event) {
 		findFocus(event);
 	} else if (event.target.parentNode.classList == 'description') {
 		findFocus(event);
-	} else if (event.target.parentNode.classList == 'title') {
-		findFocus(event);
-	}
+	} 
 });
 
+document.getElementById('typeinme').addEventListener('keyup', function(event) {
+	// console.log(event);
+	if (event.keyCode === 13) {
+		document.getElementById('typeinme').value = '';
+	}
+});
 
 
 
