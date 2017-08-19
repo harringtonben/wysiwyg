@@ -38,8 +38,23 @@ var outputEl = document.getElementById('output-target');
 var textInput = document.getElementById('typeinme');
 var cardnumber = document.getElementsByClassName('product');
 
-function findFocus() {
+function replaceDOM(event) {
+
+console.log(event);
+var textToReplace = event.target.nextSibling.firstElementChild;
+textInput.addEventListener('keypress', function(typing) {
+		// console.log(typing.key);
+		textToReplace.innerHTML += '';
+		textToReplace.innerHTML = document.getElementById('typeinme').value;
+	});
+}
+
+
+function findFocus(event) {
+	// console.log(event)
 	typeinme.focus()
+	replaceDOM(event);
+	// console.log(textToReplace)	
 }
 
 for (var i = 0; i < famousPeople.length; i++) {
@@ -54,7 +69,7 @@ for (var i = 0; i < famousPeople.length; i++) {
     domString += `<h3>${famousPeople[i].title}</h3>`;
     domString += `</div>`;
     domString += `<div class="description" id="description">`;
-    domString += `<p>${famousPeople[i].bio}</p>`;
+    domString += `<p class="bio">${famousPeople[i].bio}</p>`;
     domString += `<h6>Birth: ${famousPeople[i].lifespan.birth} Death: ${famousPeople[i].lifespan.death}</h6>`;
     domString += `<img class="productImages" src="${famousPeople[i].image}">`;
     domString += '</div>';
@@ -82,13 +97,16 @@ document.body.addEventListener('click', function(event) {
 document.body.addEventListener('click', function(event) {
 	// console.log(event);
 	 if (event.target.classList == 'title') {
-		findFocus();
+	 	// console.log(event);
+		findFocus(event);
 	} else if (event.target.parentNode.classList == 'description') {
-		findFocus();
+		findFocus(event);
 	} else if (event.target.parentNode.classList == 'title') {
-		findFocus();
+		findFocus(event);
 	}
 });
+
+
 
 
 // // Now containerEl will have elements in it
