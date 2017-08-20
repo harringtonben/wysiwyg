@@ -39,25 +39,11 @@ var textInput = document.getElementById('typeinme');
 var cardnumber = document.getElementsByClassName('product');
 
 function replaceDOM(event) {
-
-// console.log(event);
-// var textToReplace = event.target.nextSibling.firstElementChild;
-// console.log(textToReplace)
-
-if (event.target.classList == 'title') {
+	if (event.target.parentNode.parentElement.nodeName === 'SECTION') {
 		textInput.addEventListener('keypress', function(typing) {
-		// console.log(typing.key);
-		event.target.nextSibling.firstElementChild.innerHTML += '';
-		event.target.nextSibling.firstElementChild.innerHTML = document.getElementById('typeinme').value;
-	});} else if (event.target.parentNode.classList == 'description') {
-		textInput.addEventListener('keypress', function(typing) {
-		// console.log(event.target.classList);
-		event.target.parentNode.firstChild.innerHTML += '';
-		event.target.parentNode.firstChild.innerHTML = document.getElementById('typeinme').value;
-	});} else if (event.target.parentNode.classList == 'description') {
-		console.log(event);
+			console.log(typing.key);
+		});
 	}
-
 }
 
 
@@ -71,9 +57,9 @@ function findFocus(event) {
 for (var i = 0; i < famousPeople.length; i++) {
 	var domString = "";
 	if (i % 2 == 0){
-	domString += `<section class="product odd" id="person-${[i+1]}">`;
+	domString += `<section class="person odd" id="person-${[i+1]}">`;
 	} else {
-	domString += `<section class="product even" id="person-${[i+1]}">`;
+	domString += `<section class="person even" id="person-${[i+1]}">`;
 	} 
     domString += `<div class="title">`;
     domString += `<h2>${famousPeople[i].name}</h2>`;
@@ -82,37 +68,13 @@ for (var i = 0; i < famousPeople.length; i++) {
     domString += `<div class="description" id="description">`;
     domString += `<p class="bio">${famousPeople[i].bio}</p>`;
     domString += `<h6>Birth: ${famousPeople[i].lifespan.birth} Death: ${famousPeople[i].lifespan.death}</h6>`;
-    domString += `<img class="productImages" src="${famousPeople[i].image}">`;
+    domString += `<img class="personImages" src="${famousPeople[i].image}">`;
     domString += '</div>';
     domString += '</section>';
     outputEl.innerHTML += domString;
 }
 
-
-document.body.addEventListener('click', function(event) {
-	 if (event.target.classList == 'title') {
-		// console.log(event.target.parentNode.classList);
-		event.target.parentNode.classList.add('dottedborder');
-		// console.log(event.target.parentNode.classList);
-	} else if (event.target.parentNode.classList == 'description') {
-		// console.log(event.target.parentElement.parentNode.classList);
-		event.target.parentElement.parentNode.classList.add('dottedborder');
-	} else if (event.target.parentNode.classList == 'title') {
-		// console.log(event.target.parentNode.parentNode.classList);
-		event.target.parentNode.parentNode.classList.add('dottedborder');
-	}
-});
-
-document.body.addEventListener('click', function(event) {
-	// console.log(event);
-	 if (event.target.classList == 'title') {
-	 	// console.log(event);
-		findFocus(event);
-	} else if (event.target.parentNode.classList == 'description') {
-		findFocus(event);
-	} 
-});
-
+//clears the input field when pressing enter
 document.getElementById('typeinme').addEventListener('keyup', function(event) {
 	// console.log(event);
 	if (event.keyCode === 13) {
@@ -120,13 +82,15 @@ document.getElementById('typeinme').addEventListener('keyup', function(event) {
 	}
 });
 
+// Now containerEl will have elements in it
+var containerEl = document.getElementsByClassName('container');
 
+for (var i = 0; i < containerEl.length; i++) {
+	containerEl[i].addEventListener('mouseup', function(event) {
+		if (event.target.parentNode.parentElement.nodeName === 'SECTION') {
+			event.target.parentNode.parentElement.classList.add('dottedborder');
+			findFocus(event)
+		} 
+	});
+}
 
-// // Now containerEl will have elements in it
-// var containerEl = document.getElementsByClassName("person__container");
-
-// // Event listeners are created
-// for (var i = 0; i < containerEl.length; i++) {
-//   containerEl[i].addEventListener("click", function (event) {
-//     // Logic to execute when the element is clicked
-// });

@@ -18,7 +18,7 @@ body {
 
 /*CARD LAYOUT*/
 
-.product {
+.person {
   width: 400px;
   border-radius: 3px;
   box-shadow: 5px 5px 5px #467F9A;
@@ -26,7 +26,7 @@ body {
   padding: 2px;
 }
 
-.productImages {
+.personImages {
   max-width: 100%;
   margin: auto;
 }
@@ -50,7 +50,7 @@ body {
   text-transform: uppercase;
 }
 
-.product p {
+.person p {
   padding: 2px;
 }
 
