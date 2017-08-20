@@ -5,7 +5,7 @@ var famousPeople = [
   title: "Jedi",
   name: "Luke Skywalker",
   bio: "Killin the game with a lightsaber as son as he found out his dad was darth vader",
-  image: "https://vignette3.wikia.nocookie.net/starwars/images/6/62/LukeGreenSaber-MOROTJ.png/revision/latest?cb=20150426200707",
+  image: "http://i1.mirror.co.uk/incoming/article9603913.ece/ALTERNATES/s1200/PROD-Luke-Skywalker-in-Star-Wars-film.jpg",
   lifespan: {
     birth: 1747,
     death: 1797
@@ -29,6 +29,26 @@ var famousPeople = [
   lifespan: {
     birth: 2234,
     death: 1234
+  }
+},
+{
+  title: "Jedi Master",
+  name: "Obi Wan Kenobi",
+  bio: "Forever and always proving that he is a wise man and overall badass",
+  image: "https://lumiere-a.akamaihd.net/v1/images/Obi-Wan-Kenobi_6d775533.jpeg?region=0%2C0%2C1536%2C864&width=768",
+  lifespan: {
+    birth: 1435,
+    death: 1684
+  }
+},
+{
+  title: "Jedi Master",
+  name: "Yoda",
+  bio: "The ultimate Jedi badass...nothing else is needed",
+  image: "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2017/05/yoda-advice-featured-1.jpg",
+  lifespan: {
+    birth: 087,
+    death: 2234
   }
 },
 ];
