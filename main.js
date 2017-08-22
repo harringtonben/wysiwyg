@@ -57,13 +57,15 @@ var counter = 0;
 var outputEl = document.getElementById('output-target');
 var textInput = document.getElementById('typeinme');
 var cardnumber = document.getElementsByClassName('product');
+var selectedCard;
 
 function replaceDOM(event) {
 	if (event.target.parentNode.parentElement.nodeName === 'SECTION') {
 		textInput.addEventListener('keypress', function(typing) {
-			console.log(typing.key);
+		console.log(typing.key);
+
 		});
-	}
+	} 
 }
 
 
@@ -106,10 +108,11 @@ document.getElementById('typeinme').addEventListener('keyup', function(event) {
 var containerEl = document.getElementsByClassName('container');
 
 for (var i = 0; i < containerEl.length; i++) {
-	containerEl[i].addEventListener('mouseup', function(event) {
+  containerEl[i].addEventListener('mouseup', function(event) {
 		if (event.target.parentNode.parentElement.nodeName === 'SECTION') {
 			event.target.parentNode.parentElement.classList.add('dottedborder');
-			findFocus(event)
+			findFocus(event);
+      // console.log(event);
 		} 
 	});
 }
