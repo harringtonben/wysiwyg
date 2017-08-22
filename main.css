@@ -1,0 +1,78 @@
+body {
+	background-color: lightgrey;
+	background-image: url(http://www.statisticbrain.com/wp-content/uploads/2015/04/star-wars-franchise-revenue-statistics.jpg);
+  font-family: 'Space Mono', monospace;
+}
+
+.container {
+	margin: auto;
+}
+
+.starwars {
+	background-color: lightgrey;
+	color: white;
+}
+
+
+/*CARD LAYOUT*/
+
+
+/*CARD LAYOUT*/
+
+.person {
+  width: 400px;
+  border-radius: 3px;
+  box-shadow: 5px 5px 5px #467F9A;
+  margin: 1%;
+  padding: 2px;
+}
+
+.personImages {
+  max-width: 100%;
+  margin: auto;
+}
+
+.description > *{
+  text-align: center;
+  margin: 0;
+}
+
+.description {
+  padding: 2%;
+}
+
+.description h6 {
+  font-size: 1.5em;
+  padding: 2%;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.person p {
+  padding: 2px;
+}
+
+/* Card Layout */
+
+#output-target {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.even {
+	background-color: lightyellow;
+}
+
+.odd {
+	background-color: lightblue;
+}
+
+.dottedborder {
+	border: 3px dotted black;
+}
+
+
