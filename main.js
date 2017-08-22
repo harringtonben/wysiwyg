@@ -60,12 +60,17 @@ var cardnumber = document.getElementsByClassName('product');
 var selectedCard;
 
 function replaceDOM(event) {
-	if (event.target.parentNode.parentElement.nodeName === 'SECTION') {
-		textInput.addEventListener('keypress', function(typing) {
-		console.log(typing.key);
+  // debugger;
 
-		});
-	} 
+		textInput.addEventListener('keypress', function(typing) {
+		  selectedCard.innerHTML = '';
+      selectedCard.innerHTML = textInput.value;
+      
+    }
+    // console.log(selectedCard);
+    // console.log(typing.key);
+	);
+
 }
 
 
@@ -73,6 +78,7 @@ function findFocus(event) {
 	// console.log(event)
 	document.getElementById('typeinme').focus()
 	replaceDOM(event);
+  console.log(event);
 	// console.log(textToReplace)	
 }
 
@@ -109,11 +115,19 @@ var containerEl = document.getElementsByClassName('container');
 
 for (var i = 0; i < containerEl.length; i++) {
   containerEl[i].addEventListener('mouseup', function(event) {
-		if (event.target.parentNode.parentElement.nodeName === 'SECTION') {
+		if (event.target.parentNode.classList.contains('title')) {
+      // console.log(event);
+      selectedCard = event.target.parentNode.parentNode.childNodes[1].childNodes['0'];
 			event.target.parentNode.parentElement.classList.add('dottedborder');
+      // console.log(selectedCard);
 			findFocus(event);
       // console.log(event);
-		} 
+		} else if (event.target.parentNode.classList.contains('description')) {
+      // console.log(event);
+      event.target.parentNode.parentElement.classList.add('dottedborder');
+      selectedCard = event.target.parentNode.parentNode.childNodes[1].childNodes['0'];
+      findFocus(event);
+    }
 	});
 }
 

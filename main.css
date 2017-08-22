@@ -1,6 +1,7 @@
 body {
 	background-color: lightgrey;
 	background-image: url(http://www.statisticbrain.com/wp-content/uploads/2015/04/star-wars-franchise-revenue-statistics.jpg);
+  font-family: 'Space Mono', monospace;
 }
 
 .container {
