@@ -6,6 +6,7 @@ body {
 
 .container {
 	margin: auto;
+  text-align: center;
 }
 
 .starwars {
@@ -74,5 +75,10 @@ body {
 .dottedborder {
 	border: 3px dotted black;
 }
+
+.heading {
+  color: white;
+}
+
 
 
